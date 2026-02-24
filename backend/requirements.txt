@@ -11,3 +11,4 @@ cachelib==0.13.0
 # psycopg2-binary==2.9.9  # Uncomment when using PostgreSQL
 pytest==8.4.2
 pytest-flask==1.3.0
+gunicorn
