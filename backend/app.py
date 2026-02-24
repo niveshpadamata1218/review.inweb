@@ -32,7 +32,10 @@ def create_app(config_name=None):
     limiter.init_app(app)
 
     # ── CORS ──
+    # Allow all explicit origins from FRONTEND_URL plus any localhost port
+    import re
     _cors_origins = [o.strip() for o in app.config["FRONTEND_URL"].split(",") if o.strip()]
+    _cors_origins.append(re.compile(r"http://localhost:\d+"))
     CORS(
         app,
         supports_credentials=True,
