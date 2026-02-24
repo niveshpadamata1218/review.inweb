@@ -161,8 +161,12 @@ def _register_error_handlers(app):
 
 
 # ──────────────────────────────────────────────
+# Module-level app instance (used by gunicorn)
+# ──────────────────────────────────────────────
+app = create_app()
+
+# ──────────────────────────────────────────────
 # Run directly: python app.py
 # ──────────────────────────────────────────────
 if __name__ == "__main__":
-    app = create_app()
     app.run(host="0.0.0.0", port=5001, debug=True)
